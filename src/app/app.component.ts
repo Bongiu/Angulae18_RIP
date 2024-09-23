@@ -12,11 +12,17 @@ import { CardComponent } from '../library/card/card.component';
 export class AppComponent {
   title = 'DEMO_angular18';
   titoloPadre = signal<string>("Signal titolo")
+  nuovoTitolo = 'Nuovo output'
 
   getOutput(e:boolean){
     console.log(e);
     
   }
+
+  provaOutput(g:string){
+    console.log(g)
+  }
+  
 }
 
 

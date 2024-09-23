@@ -1,6 +1,6 @@
 
 <h1>CIAO - app component </h1>
-<app-card [titoloFiglio]="titoloPadre()" (onNameChange)="getOutput($event)">
+<app-card [titoloFiglio]="titoloPadre()" (onNameChange)="getOutput($event)" (mioOutput)="provaOutput($event)">
     <div>
         contenuto ng-content
     </div>

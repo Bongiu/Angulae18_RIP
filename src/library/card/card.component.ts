@@ -16,4 +16,10 @@ export class CardComponent {
   setNewName() {
     this.onNameChange.emit(true);
   }
+
+  mioOutput = output<string>(); //questo è un une evento
+  //nuovoNome = 'girolamo'
+  nuovoOut(nuovoNome : string){
+    this.mioOutput.emit(nuovoNome);
+  }
 }
