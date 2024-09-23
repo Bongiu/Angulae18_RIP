@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.card-container{
+    --mat-menu-item-label-text-font: 'Inter' !important;
+    --mat-menu-item-focus-state-layer-color: transparent !important;
+    background-color: var(--light-color) !important;
+    border-radius: 8px !important;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 20%) !important;
+    padding: 16px !important;
+    min-height: 110px;
+    width: 500px;
+  }
