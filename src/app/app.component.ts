@@ -1,8 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from '../library/card/card.component';
-import { ReactiveFormComponent } from '../library/reactive-form/reactive-form.component';
+import { ReactiveFormComponent, ReactiveFormInterface } from '../library/reactive-form/reactive-form.component';
 import { TemplateFormComponent } from '../library/template-form/template-form.component';
+import { Form } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -24,7 +26,10 @@ export class AppComponent {
   provaOutput(g:string){
     console.log(g)
   }
-  
+
+  provaFormOutput(d:any){
+    console.log('dati in output del form',d);
+  }  
 }
 
 

@@ -1,4 +1,50 @@
-
 <div class="card-container">
     <p>reactive-form works!</p>
+    <form [formGroup]="reactiveForm">
+        <div>
+
+            <input placeholder="username" formControlName="userName">
+        </div>
+        <div>
+            <!-- [ngClass]="{'my_class': step === 'step1'}" 
+             
+            mail?.invalid && mail?.touched ? 'invalid' : 'valid'
+
+            [ngClass]="[color(), !text() ? 'icon' : '']"
+
+            [ngClass]="['invalid' : mail?.invalid && mail?.touched, 'valid' : mail?.valid]"
+            -->
+            
+            <input placeholder="mail" formControlName="mail" type="email"
+            [ngClass]="{'invalid': mail?.invalid && mail?.touched, 'valid': mail?.valid}">
+            <div>
+            </div>
+            @if(mail?.invalid){
+                @if(mail?.hasError('required') && mail?.touched){
+                <div>
+                    il campo è obbligatorio
+                </div>
+                } @else if(mail?.hasError('minlength')){
+                <div>
+                la mail deve essere almeno di 4 caratteri
+                </div>
+                }
+            }
+        </div>
+        <button type="button" (click)="sendForm()" [disabled]="reactiveForm.invalid">Invio form</button>
+
+    </form>
+    <!-- {{reactiveForm.value | json}}
+    {{reactiveForm.status}} -->
+    <!-- {{reactiveForm.errors | json}} -->
+
+    <!-- stati degli input - controlli dei campi -->
+    <div> Valid: {{mail?.valid}}</div>
+    <div> Invalid: {{mail?.invalid}}</div>
+    <div> Touched: {{mail?.touched}}</div>
+    <div> Untouched: {{mail?.untouched}}</div>
+    <div> Dirty: {{mail?.dirty}}</div>
+    <div> Pristine: {{mail?.pristine}}</div>
+
+
 </div>
