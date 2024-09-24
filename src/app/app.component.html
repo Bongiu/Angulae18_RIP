@@ -1,6 +1,6 @@
 
 <h1>CIAO - app component </h1>
-<app-card [titoloFiglio]="titoloPadre()" (onNameChange)="getOutput($event)" (mioOutput)="provaOutput($event)">
+<!-- <app-card [titoloFiglio]="titoloPadre()" (onNameChange)="getOutput($event)" (mioOutput)="provaOutput($event)">
     <div>
         contenuto ng-content
     </div>
@@ -8,5 +8,7 @@
 
 </app-card>
 <app-template-form></app-template-form>
-<app-reactive-form (outputForm)="provaFormOutput($event)" ></app-reactive-form>
+<app-reactive-form (outputForm)="provaFormOutput($event)" ></app-reactive-form> -->
+
+<app-ripasso-componenti (datiForm)="nuoviDatiForm($event)" ></app-ripasso-componenti>
 <router-outlet />

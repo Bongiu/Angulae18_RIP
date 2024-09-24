@@ -54,11 +54,11 @@ export class ReactiveFormComponent {
       this.setOutputForm(this.reactiveForm.value);
     }
   }
-
+// ritorna solo la chiave FormControl.value 
   get username(): FormControl {
     return this.reactiveForm.get('userName')?.value;
   }
-
+// riotrna tutto l'oggetto FormCotrol 'mail'
   get mail() {
     return this.reactiveForm.get('mail');
   }

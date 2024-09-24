@@ -4,12 +4,13 @@ import { CardComponent } from '../library/card/card.component';
 import { ReactiveFormComponent, ReactiveFormInterface } from '../library/reactive-form/reactive-form.component';
 import { TemplateFormComponent } from '../library/template-form/template-form.component';
 import { Form } from '@angular/forms';
+import { RipassoComponentiComponent } from './ripasso-componenti/ripasso-componenti.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, ReactiveFormComponent, TemplateFormComponent],
+  imports: [RouterOutlet, CardComponent, ReactiveFormComponent, TemplateFormComponent, RipassoComponentiComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -30,6 +31,10 @@ export class AppComponent {
   provaFormOutput(d:any){
     console.log('dati in output del form',d);
   }  
+
+  nuoviDatiForm(b:{}){
+    console.log('nuovi dati del form', b)
+  }
 }
 
 

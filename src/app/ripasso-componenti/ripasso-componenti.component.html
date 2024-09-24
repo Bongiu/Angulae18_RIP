@@ -1,0 +1,54 @@
+<div class="card-container">
+    <p>ripasso-componenti works!</p>
+
+    <form [formGroup]="nuovoForm">
+        <div>
+            <label>
+                Nome
+            </label>
+            <input type="text" formControlName="username">
+            @if(username?.hasError('required')){
+                <div style="color:red"> 
+                    Campo obbligatorio
+                </div>
+            }
+        </div>
+        <div>
+            <label>
+                Data
+            </label>
+            <input type="date" formControlName="data">
+        </div>
+        <div>
+            <label>
+                E-mail
+            </label>
+            <input type="email" formControlName="mail">
+        </div>
+        <div>
+            <label>
+                Genere
+            </label> 
+            <br>
+            <span>
+                F
+            </span>
+            <input type="radio" formControlName="genere" name="genere" value="F">
+            <span>
+                M
+            </span>
+            <input type="radio" formControlName="genere" name="genere" value="M">
+        </div>
+        <div>
+            <button type="button" (click)="inviaDati()">
+                Invia dati
+            </button>
+
+            <button type="button" (click)="resetForm()">
+                Reset
+            </button>
+        </div>
+
+    </form>
+
+</div>
