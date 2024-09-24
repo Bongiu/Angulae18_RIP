@@ -1,4 +1,3 @@
-
 <h1>CIAO - app component </h1>
 <!-- <app-card [titoloFiglio]="titoloPadre()" (onNameChange)="getOutput($event)" (mioOutput)="provaOutput($event)">
     <div>
@@ -10,5 +9,22 @@
 <app-template-form></app-template-form>
 <app-reactive-form (outputForm)="provaFormOutput($event)" ></app-reactive-form> -->
 
-<app-ripasso-componenti (datiForm)="nuoviDatiForm($event)" ></app-ripasso-componenti>
+<!-- <app-ripasso-componenti (datiForm)="nuoviDatiForm($event)" ></app-ripasso-componenti> -->
+<app-http></app-http>
+<button type="button" (click)="aperturaModale()">Apertura modale</button>
+<button type="button" (click)="getPosts()">GET posts</button>
+@if(posts){
+<div>
+    @let postsList = posts;
+
+    @for(post of postsList; track post.id){
+    <li>
+        {{post.id}}
+    </li>
+    }
+</div>
+}
+
+
+
 <router-outlet />
