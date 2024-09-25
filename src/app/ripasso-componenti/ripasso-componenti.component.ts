@@ -76,4 +76,5 @@ export class RipassoComponentiComponent {
   // componente padre riceve
   // definizione evento custom sul componente figlio
   // funzione ricezione output/evento (no click) -> connessa all'evento
+  
 }

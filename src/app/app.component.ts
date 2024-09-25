@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from '../library/card/card.component';
 import { ReactiveFormComponent } from '../library/reactive-form/reactive-form.component';
@@ -22,6 +22,11 @@ export class AppComponent {
   titoloPadre = signal<string>("Signal titolo")
   nuovoTitolo = 'Nuovo output'
   posts: Post[]= [];
+  
+  // Per modificare gli elementi HTML -> es <div #nomeAssegnato>
+  // contenitoreFor = viewChild<ElementRef>('contenitoreFor');
+  // console.log('stampa elemento richiamato HTML',this.contenitoreFor);
+
   // blog = inject(BlogService) -> altro metodo per iniettare servizi senza usare il costruttore
 
 
@@ -62,6 +67,12 @@ export class AppComponent {
       console.log('get posts componente padre',res);
       
     });
+    
+  }
+
+  padreOutput(f:string){
+    console.log('quetso è output padre', f);
+    
   }
 }
 
