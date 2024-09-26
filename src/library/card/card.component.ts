@@ -1,4 +1,5 @@
 import { Component, input, output } from '@angular/core';
+import { BlogService } from '../../app/core/services/blog.service';
 
 @Component({
   selector: 'app-card',
@@ -8,8 +9,13 @@ import { Component, input, output } from '@angular/core';
   styleUrl: './card.component.css',
 })
 export class CardComponent {
+ 
   //INPUT
   titoloFiglio = input.required<string>();
+
+  constructor(){
+
+  }
 
   //OUTPUT
   onNameChange = output<boolean>(); // OutputEmitterRef<string>
@@ -22,4 +28,7 @@ export class CardComponent {
   nuovoOut(nuovoNome : string){
     this.mioOutput.emit(nuovoNome);
   }
+
+
+  
 }

@@ -8,12 +8,13 @@ import { HttpComponent } from '../library/http/http.component';
 import { BlogService } from './core/services/blog.service';
 import { Post, PostsI } from './core/interfaces/posts.interface';
 import { CommonModule } from '@angular/common';
+import { FormEditPostComponent } from "../library/form-edit-post/form-edit-post.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, CommonModule,ReactiveFormComponent, TemplateFormComponent, RipassoComponentiComponent, HttpComponent],
+  imports: [RouterOutlet, CardComponent, CommonModule, ReactiveFormComponent, TemplateFormComponent, RipassoComponentiComponent, HttpComponent, FormEditPostComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -22,6 +23,7 @@ export class AppComponent {
   titoloPadre = signal<string>("Signal titolo")
   nuovoTitolo = 'Nuovo output'
   posts: Post[]= [];
+  postTOedit = signal<null | Post>(null);
   
   // Per modificare gli elementi HTML -> es <div #nomeAssegnato>
   // contenitoreFor = viewChild<ElementRef>('contenitoreFor');
@@ -33,6 +35,7 @@ export class AppComponent {
   constructor(private blogService:BlogService) { 
     // const blog = new BlogService()
     blogService.stampa()
+    
   }
 
   getOutput(e:boolean){
@@ -56,8 +59,22 @@ export class AppComponent {
     this.blogService.modale();
   }
 
-  getPosts(){
+  ricezioneDatiForm(datoOutput:{title:string, views:number}){
+    debugger;
+    console.log('dati ricevuti dal form', datoOutput);
+    //inseriemnto post inviato dal form
+    
+    const nuovoPost = {
+      id:  String(new Date().getSeconds()),
+      title: datoOutput.title,
+      views: datoOutput.views
+    }
+    this.createPost(nuovoPost);
+    
+  }
 
+  //GET - all
+  getPosts(){
     this.blogService.getPosts().subscribe((res)=>{
       if(res){
         this.posts=res as Post[];
@@ -69,11 +86,62 @@ export class AppComponent {
     });
     
   }
+//GET - singolo elemento
+  getPost(id:string){
+    this.blogService.getPost(id).subscribe((res)=>{
+      console.log('risposta singola', res);
+      
+    })
+  }
 
   padreOutput(f:string){
     console.log('quetso è output padre', f);
     
   }
+
+  //POST
+  createPost(body:Post){
+    this.blogService.createPost(body)
+    .subscribe((res)=>{
+      console.log('creazione post', res);
+
+      if(res){
+        this.getPosts();
+      }
+      
+    })
+  }
+
+  //PUT
+  editPost(post:Post){
+    const id : string = post.id;
+    console.log('stampa oggetto post',post);
+    if(post){
+    this.postTOedit.set(post);
+    }
+
+    // this.blogService.editPost(id, { 
+    //   id: '33',
+    //   title: 'oggetto modificato',
+    //   views: 3} ).subscribe((res)=>{
+    //     console.log('edit post', res);
+    //     if(res){
+    //       this.getPosts();
+    //     }
+    //   })
+  }
+
+  //DELETE
+  deletePost(id:string){
+    this.blogService.deletePost(id).subscribe((res)=>{
+      console.log('delete post', res);
+      if(res){
+        this.getPosts();
+      }
+    })
+  }
+
+ 
 }
 
 

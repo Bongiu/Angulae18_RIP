@@ -14,14 +14,33 @@
 <button type="button" (click)="aperturaModale()">Apertura modale</button>
 <button type="button" (click)="getPosts()">GET posts</button>
 <button type="button" (click)="padreOutput('Girolamo')">padre dell'output</button>
+<!-- <button type="button" (click)="createPost()">POST - creazione</button> -->
+
+<app-form-edit-post (datiALpadre)="ricezioneDatiForm($event)" [editDatiForm]="postTOedit()"></app-form-edit-post>
 @if(posts){
 <div>
     @let postsList = posts;
 
     @for(post of postsList; track post.id){
-    <li>
-        {{post.id}}
-    </li>
+    <div>
+        <app-card [titoloFiglio]="post.id+'-'+ post.title">
+            <button (click)="getPost(post.id)">
+                dettagli elemento
+            </button>
+            <button type="button" (click)="editPost(post)">
+                EDIT Post - modifica
+            </button>
+            <button type="button" (click)="deletePost(post.id)">
+                DELETE Post - elimina
+            </button>
+            
+        </app-card>
+        <!-- componente dinamico  -->
+        <!-- <app-card [titoloFiglio]="'ciao'">
+            <h1>placeholder</h1>
+        </app-card> -->
+        <br>
+    </div>
     }
 </div>
 }

@@ -1,0 +1,16 @@
+<p>form-edit-post works!</p>
+<div class="card-container">
+    <form [formGroup]="form">
+        <div>
+            <label>Titolo</label>
+            <input type="text" formControlName="title">
+        </div>
+        <div>
+            <label>View</label>
+            <input type="text" formControlName="views">
+        </div>
+        <button type="button" (click)="invioDati()">Inserimento post</button>
+        
+
+    </form>
+</div>
