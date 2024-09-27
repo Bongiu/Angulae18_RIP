@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Post} from '../interfaces/posts.interface';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 export class BlogService {
   nome = 'giulia';
   URL = 'http://localhost:3000/posts';
+  editPostData = new BehaviorSubject<Post | null>(null); // comunicazione di dati a livello globale
+  editPostDataSignal = signal<Post | null>(null); 
 
   constructor(private http:HttpClient) {
 

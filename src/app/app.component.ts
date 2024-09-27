@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, signal, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CardComponent } from '../library/card/card.component';
 import { ReactiveFormComponent } from '../library/reactive-form/reactive-form.component';
@@ -12,6 +12,7 @@ import { FormEditPostComponent } from "../library/form-edit-post/form-edit-post.
 
 
 @Component({
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, CardComponent, CommonModule, ReactiveFormComponent, TemplateFormComponent, RipassoComponentiComponent, HttpComponent, FormEditPostComponent],
@@ -34,8 +35,11 @@ export class AppComponent {
 
   constructor(private blogService:BlogService) { 
     // const blog = new BlogService()
-    blogService.stampa()
+    // blogService.stampa()
     
+  }
+  ngOnInit(){
+    this.getPosts();
   }
 
   getOutput(e:boolean){
@@ -60,7 +64,6 @@ export class AppComponent {
   }
 
   ricezioneDatiForm(datoOutput:{title:string, views:number}){
-    debugger;
     console.log('dati ricevuti dal form', datoOutput);
     //inseriemnto post inviato dal form
     
@@ -115,8 +118,11 @@ export class AppComponent {
   //PUT
   editPost(post:Post){
     const id : string = post.id;
-    console.log('stampa oggetto post',post);
+    // console.log('stampa oggetto edit',post
+
     if(post){
+     this.blogService.editPostData.next(post);
+     this.blogService.editPostDataSignal.set(post);
     this.postTOedit.set(post);
     }
 
