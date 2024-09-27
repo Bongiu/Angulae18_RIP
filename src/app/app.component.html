@@ -11,12 +11,14 @@
 
 <!-- <app-ripasso-componenti (datiForm)="nuoviDatiForm($event)" ></app-ripasso-componenti> -->
 <app-http></app-http>
+<app-operatori-rxjs></app-operatori-rxjs>
+<!-- 
 <button type="button" (click)="aperturaModale()">Apertura modale</button>
-<button type="button" (click)="getPosts()">GET posts</button>
-<button type="button" (click)="padreOutput('Girolamo')">padre dell'output</button>
+<button type="button" (click)="getPosts()">GET posts</button> -->
+<!-- <button type="button" (click)="padreOutput('Girolamo')">padre dell'output</button> -->
 <!-- <button type="button" (click)="createPost()">POST - creazione</button> -->
 
-<app-form-edit-post (datiALpadre)="ricezioneDatiForm($event)" [editDatiForm]="postTOedit()"></app-form-edit-post>
+<!-- <app-form-edit-post (datiALpadre)="ricezioneDatiForm($event)" [editDatiForm]="postTOedit()"></app-form-edit-post>
 @if(posts){
 <div>
     @let postsList = posts;
@@ -35,16 +37,16 @@
             </button>
             
         </app-card>
-        <!-- componente dinamico  -->
-        <!-- <app-card [titoloFiglio]="'ciao'">
-            <h1>placeholder</h1>
-        </app-card> -->
+       
         <br>
     </div>
     }
 </div>
-}
-
+} -->
+ <!-- componente dinamico  -->
+        <!-- <app-card [titoloFiglio]="'ciao'">
+            <h1>placeholder</h1>
+        </app-card> -->
 
 
 <router-outlet />

@@ -39,7 +39,7 @@ export class ReactiveFormComponent {
   }
 
   initForm() {
-    debugger;
+    
     this.reactiveForm = new FormGroup({
       userName: new FormControl('giulia', [Validators.required]),
       mail: new FormControl(null, [

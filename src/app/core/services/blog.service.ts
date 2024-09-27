@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class BlogService {
   nome = 'giulia';
   URL = 'http://localhost:3000/posts';
+  baseURL = 'http://localhost:3000'
   editPostData = new BehaviorSubject<Post | null>(null); // comunicazione di dati a livello globale
   editPostDataSignal = signal<Post | null>(null); 
 
@@ -31,10 +32,18 @@ export class BlogService {
     return this.http.get<Post[]>(this.URL);
   }
   
+  // get chiave accesso switchMAP
+
+  getChiaveAccessoSwitchMap(){
+    return this.http.get<{chiaveID : number}>(`${this.baseURL}/chiaveAccesso`)
+    // return this.http.get<{chiaveID : number}>('http://localhost:3000/chiaveAccesso')
+  }
+
+
   // chiamata singola 
   
   // GET (singola)
-  getPost(id:string){
+  getPost(id:string | number){
     //localhost:4200/post/id
     return this.http.get<Post>(`${this.URL}/${id}`);
   }

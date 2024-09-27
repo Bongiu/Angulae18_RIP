@@ -9,13 +9,14 @@ import { BlogService } from './core/services/blog.service';
 import { Post, PostsI } from './core/interfaces/posts.interface';
 import { CommonModule } from '@angular/common';
 import { FormEditPostComponent } from "../library/form-edit-post/form-edit-post.component";
+import { OperatoriRxjsComponent } from "../library/operatori-rxjs/operatori-rxjs.component";
 
 
 @Component({
   // changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, CommonModule, ReactiveFormComponent, TemplateFormComponent, RipassoComponentiComponent, HttpComponent, FormEditPostComponent],
+  imports: [RouterOutlet, CardComponent, CommonModule, ReactiveFormComponent, TemplateFormComponent, RipassoComponentiComponent, HttpComponent, FormEditPostComponent, OperatoriRxjsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

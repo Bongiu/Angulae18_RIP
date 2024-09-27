@@ -9,31 +9,10 @@
       "id": "2",
       "title": "titolo nuovo post",
       "views": 3
-    },
-    {
-      "id": "58",
-      "title": "ddeef",
-      "views": "dddf"
-    },
-    {
-      "id": "37",
-      "title": "eeee",
-      "views": "eee"
-    },
-    {
-      "id": "48",
-      "title": "dre",
-      "views": "dre"
-    },
-    {
-      "id": "29",
-      "title": "bhh",
-      "views": "bb"
-    },
-    {
-      "id": "20",
-      "title": "Titolo behavior",
-      "views": 3
+    }   
+  ],
+  "chiaveAccesso" : {
+      "chiaveID" : 1
     }
-  ]
+  
 }
