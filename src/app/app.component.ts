@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, inject, signal, viewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CardComponent } from '../library/card/card.component';
 import { ReactiveFormComponent } from '../library/reactive-form/reactive-form.component';
 import { TemplateFormComponent } from '../library/template-form/template-form.component';
@@ -16,7 +16,7 @@ import { OperatoriRxjsComponent } from "../library/operatori-rxjs/operatori-rxjs
   // changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, CommonModule, ReactiveFormComponent, TemplateFormComponent, RipassoComponentiComponent, HttpComponent, FormEditPostComponent, OperatoriRxjsComponent],
+  imports: [RouterOutlet, CardComponent, CommonModule, ReactiveFormComponent, TemplateFormComponent, RipassoComponentiComponent, HttpComponent, FormEditPostComponent, OperatoriRxjsComponent, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

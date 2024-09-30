@@ -112,7 +112,7 @@ export class OperatoriRxjsComponent {
 
   methodForkJoin() {
     // alert('forkJoin');
-    debugger;
+  
     this.postService.getAllForkJoin().subscribe((res) => {
       if (res) {
         this.userForkJoin = res;
