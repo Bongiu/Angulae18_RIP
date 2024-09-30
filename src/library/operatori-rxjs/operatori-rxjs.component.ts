@@ -65,7 +65,7 @@ export class OperatoriRxjsComponent {
 
   // zip
   // switchmap
-  // concatMap
+  // concatMap --> aspetta un observable alla volta (sequenzialmente)
   // mergeMap
   // map --> manipola l'observable in quello che viene specificato
   // filter
