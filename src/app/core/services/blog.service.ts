@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { Post} from '../interfaces/posts.interface';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +12,9 @@ export class BlogService {
   baseURL = 'http://localhost:3000'
   editPostData = new BehaviorSubject<Post | null>(null); // comunicazione di dati a livello globale
   editPostDataSignal = signal<Post | null>(null); 
+  
 
   constructor(private http:HttpClient) {
-
   }
 
   stampa() {
@@ -61,5 +61,22 @@ export class BlogService {
   // DELETE
   deletePost(id:string){
     return this.http.delete<Post>(`${this.URL}/${id}`);
+  }
+
+  // FORKJOIN
+
+  getForkJoinPost(){
+    return this.http.get(this.baseURL+'/chiaveForkJoinPost');
+  }
+
+  getForkJoinUser(){
+    return this.http.get(this.baseURL+'/chiaveForkJoinUser');
+  }
+
+  getAllForkJoin(){
+    return forkJoin([
+      this.getForkJoinUser(),
+      this.getForkJoinPost()
+    ])
   }
 }
